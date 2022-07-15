@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- ======================================================================
+     31.07.2019
+
+     GRITS extension for spectra filtering
+     
+     Masaaki Matsubara
+     ====================================================================== -->
+<project name="SpectraFiltering" basedir="." default="jar">
+
+	<property name="version.number" value="0.1" />
+
+	<!-- APPLIC PROPERTIES -->
+	<property name="bin.dir" location="bin2" />
+	<property name="src.dir" location="src" />
+	<property name="lib.dir" location="lib" />
+
+	<!-- init -->
+	<target name="init" description="Initialization of the project.">
+		<mkdir dir="${bin.dir}" />
+	</target>
+
+	<!-- compile -->
+	<target name="compile" depends="init" description="Compilation of the code.">
+		<javac destdir="${bin.dir}" debug="on" target="1.8" source="1.8">
+			<src path="${src.dir}" />
+			<classpath>
+				<fileset dir="${lib.dir}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- converter -->
+	<target name="jar" depends="compile" description="Builds the jar.">
+		<buildnumber file="build.number" />
+		<jar destfile="GRITS.spectrafiltering-${version.number}-b${build.number}.jar" basedir="${bin.dir}">
+			<manifest>
+				<attribute name="Created-By" value="Masaaki Matsubara" />
+				<attribute name="Implementation-Title" value="SpectraFiltering library" />
+				<attribute name="Implementation-Version" value="${version.number}-b${build.number}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- clean -->
+	<target name="clean" description="Clean up.">
+		<delete dir="${bin.dir}" />
+	</target>
+
+</project>
