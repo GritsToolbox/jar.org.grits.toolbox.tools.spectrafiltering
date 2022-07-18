@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spectrafiltering
+Bundle-SymbolicName: org.grits.toolbox.tools.spectrafiltering
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.grits.toolbox.tools.spectrafiltering
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.apache,
+ org.eclipse.core.runtime,
+ org.eclipse.swt,
+ org.eclipse.jface
+Bundle-ClassPath: lib/GRITSJrapSTAX.-0.1-b51.jar
